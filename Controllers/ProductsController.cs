@@ -10,10 +10,12 @@ public class ProductsController : ODataController
 {
     private readonly AppDbContext _context;
 
-    public ProductsController(AppDbContext context) => _context = context;
+    public ProductsController(AppDbContext context) =>
+        _context = context;
 
     [EnableQuery]
-    public IQueryable<Product> Get() => _context.Products;
+    public IQueryable<Product> Get() =>
+        _context.Products;
 
     [EnableQuery]
     public IActionResult Get(int key)

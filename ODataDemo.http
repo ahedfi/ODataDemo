@@ -8,7 +8,6 @@ Accept: application/json
 GET {{ODataDemo_HostAddress}}/api/Products(1)
 Accept: application/json
 
-###
 ### Filter products by category
 GET {{ODataDemo_HostAddress}}/api/Products?$filter=CategoryId%20eq%202
 Accept: application/json
@@ -17,12 +16,10 @@ Accept: application/json
 GET {{ODataDemo_HostAddress}}/api/Products?$select=Id,Name,Price
 Accept: application/json
 
-###
 ### Expand related entities (OrderLines of a product)
 GET {{ODataDemo_HostAddress}}/api/Products?$expand=OrderLines
 Accept: application/json
 
-###
 ### Order by price descending
 GET {{ODataDemo_HostAddress}}/api/Products?$orderby=Price%20desc
 Accept: application/json
@@ -30,6 +27,7 @@ Accept: application/json
 ### Combine filter, select, expand
 GET {{ODataDemo_HostAddress}}/api/Products?$filter=Price%20gt%2020&$select=Name,Price&$expand=OrderLines
 Accept: application/json
+
 
 ### Get all orders
 GET {{ODataDemo_HostAddress}}/api/Orders

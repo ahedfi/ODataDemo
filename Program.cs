@@ -7,7 +7,8 @@ using ODataDemo.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(opt =>
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    opt.UseSqlServer(builder.Configuration
+        .GetConnectionString("DefaultConnection")));
 
 var odataBuilder = new ODataConventionModelBuilder();
 odataBuilder.EntitySet<Product>("Products");
