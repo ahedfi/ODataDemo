@@ -1,0 +1,56 @@
+@ODataDemo_HostAddress = http://localhost:5000
+
+### Get all products
+GET {{ODataDemo_HostAddress}}/api/Products
+Accept: application/json
+
+### Get product by ID
+GET {{ODataDemo_HostAddress}}/api/Products(1)
+Accept: application/json
+
+###
+### Filter products by category
+GET {{ODataDemo_HostAddress}}/api/Products?$filter=CategoryId%20eq%202
+Accept: application/json
+
+### Select specific fields
+GET {{ODataDemo_HostAddress}}/api/Products?$select=Id,Name,Price
+Accept: application/json
+
+###
+### Expand related entities (OrderLines of a product)
+GET {{ODataDemo_HostAddress}}/api/Products?$expand=OrderLines
+Accept: application/json
+
+###
+### Order by price descending
+GET {{ODataDemo_HostAddress}}/api/Products?$orderby=Price%20desc
+Accept: application/json
+
+### Combine filter, select, expand
+GET {{ODataDemo_HostAddress}}/api/Products?$filter=Price%20gt%2020&$select=Name,Price&$expand=OrderLines
+Accept: application/json
+
+### Get all orders
+GET {{ODataDemo_HostAddress}}/api/Orders
+Accept: application/json
+
+### Get a specific order by ID
+GET {{ODataDemo_HostAddress}}/api/Orders(1)
+Accept: application/json
+
+### Expand OrderLines with Products
+GET {{ODataDemo_HostAddress}}/api/Orders?$expand=OrderLines($expand=Product)
+Accept: application/json
+
+### Filter orders after Feb 1, 2025
+GET {{ODataDemo_HostAddress}}/api/Orders?$filter=OrderDate%20gt%202025-02-01
+Accept: application/json
+
+### Select only OrderDate field
+GET {{ODataDemo_HostAddress}}/api/Orders?$select=Id,OrderDate
+Accept: application/json
+
+### Order by OrderDate descending
+GET {{ODataDemo_HostAddress}}/api/Orders?$orderby=OrderDate%20desc
+Accept: application/json
