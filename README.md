@@ -19,13 +19,6 @@ It’s not a production-ready app, but a space to learn, test, and experiment wi
 - EF Core  
 - SQL Server  
 
-## 🚀 Getting Started
-1. Clone the repo  
-   ```bash
-   git clone https://github.com/ahedfi/ODataDemo
-   cd odata-playground
-
-
 ## 📚 Running the Project
 
 To run the project locally:
@@ -54,42 +47,42 @@ http://localhost:5000
 
 ```bash
 ### Get all products
-GET http://localhost:5000/odata/Products
+GET http://localhost:5000/api/Products
 
 ### Get product by ID
-GET http://localhost:5000/odata/Products(1)
+GET http://localhost:5000/api/Products(1)
 
 ### Filter products by category
-GET http://localhost:5000/odata/Products?$filter=CategoryId eq 2
+GET http://localhost:5000/api/Products?$filter=CategoryId eq 2
 
 ### Select specific fields
-GET http://localhost:5000/odata/Products?$select=Id,Name,Price
+GET http://localhost:5000/api/Products?$select=Id,Name,Price
 
 ### Expand related entities (OrderLines of a product)
-GET http://localhost:5000/odata/Products?$expand=OrderLines
+GET http://localhost:5000/api/Products?$expand=OrderLines
 
 ### Order by price descending
-GET http://localhost:5000/odata/Products?$orderby=Price desc
+GET http://localhost:5000/api/Products?$orderby=Price desc
 
 ### Combine filter, select, expand
-GET http://localhost:5000/odata/Products?$filter=Price gt 20&$select=Name,Price&$expand=OrderLines
+GET http://localhost:5000/api/Products?$filter=Price gt 20&$select=Name,Price&$expand=OrderLines
 
 ### Get all orders
-GET http://localhost:5000/odata/Orders
+GET http://localhost:5000/api/Orders
 
 ### Get a specific order by ID
-GET http://localhost:5000/odata/Orders(1)
+GET http://localhost:5000/api/Orders(1)
 
 ### Expand OrderLines with Products
-GET http://localhost:5000/odata/Orders?$expand=OrderLines($expand=Product)
+GET http://localhost:5000/api/Orders?$expand=OrderLines($expand=Product)
 
 ### Filter orders after Feb 1, 2025
-GET http://localhost:5000/odata/Orders?$filter=OrderDate gt 2025-02-01
+GET http://localhost:5000/api/Orders?$filter=OrderDate gt 2025-02-01
 
 ### Select only OrderDate field
-GET http://localhost:5000/odata/Orders?$select=Id,OrderDate
+GET http://localhost:5000/api/Orders?$select=Id,OrderDate
 
 ### Order by OrderDate descending
-GET http://localhost:5000/odata/Orders?$orderby=OrderDate desc
+GET http://localhost:5000/api/Orders?$orderby=OrderDate desc
 ```
 
