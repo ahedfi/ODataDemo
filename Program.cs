@@ -21,13 +21,14 @@ builder.Services.AddControllers().AddOData(opt =>
        .AddRouteComponents("api", odataBuilder.GetEdmModel())
 );
 
-builder.Services.AddOpenApi();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger()
+        .UseSwaggerUI();
 }
 
 app.MapControllers();
